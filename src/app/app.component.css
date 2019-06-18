@@ -1,0 +1,25 @@
+mat-form-field {
+    width: 100%;
+}
+table {
+    width: 100%;
+}
+.edit {
+    position: relative;
+    left: 200px;
+    cursor: pointer;
+    color: blue;
+}
+.delete {
+    position: relative;
+    left: 250px;
+    cursor: pointer;
+    color: red;
+}
+.add {
+    position: relative;
+    left: 62%;
+    top: 42px;
+    cursor: pointer;
+    color: green;
+}

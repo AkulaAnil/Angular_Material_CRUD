@@ -1,0 +1,21 @@
+<div mat-dialog-content>
+  <form [formGroup]="editForm">
+    <h3 class="text-center text-primary">Update Your Row</h3>
+    <mat-form-field>
+      <input matInput formControlName="position" placeholder="Position No">
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput formControlName="name" placeholder="Name">
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput formControlName="weight" placeholder="Weight">
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput formControlName="symbol" placeholder="Symbol">
+    </mat-form-field>
+  </form>  
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="onNoClick()">Cancel</button>
+  <button class="ml-5 text-right text-success" mat-button [mat-dialog-close]="editForm.value" cdkFocusInitial>Update</button>
+</div>
