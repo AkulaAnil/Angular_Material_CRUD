@@ -25,10 +25,12 @@ export class AppComponent implements OnInit {
   
   dataSource;
   users: User[];
+  
+  public options = [{id:"2",status:"All"},{id:"1",status: "Pending"},{id:"0",status:"completed"}];
 
   constructor(private dialog: MatDialog , private dataService: DataService){}
 
-  displayedColumns: string[] = ['position', 'name', 'weight', 'symbol'];
+  displayedColumns: string[] = ['position', 'name', 'weight', 'symbol', 'status'];
 
   @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
 
@@ -99,6 +101,47 @@ export class AppComponent implements OnInit {
       this.dataSource.paginator = this.paginator;
       this.dataSource.sort      = this.sort;
     });
+  }
+  
+  
+    getColor(status){
+    if(status == "completed"){
+      return 'green';
+    }else {
+      return 'red';
+    }
+  }
+
+  getStyle(status){
+    if(status == 'completed'){
+      return 'green';
+    }else {
+      return 'blue';
+    }
+  }
+
+
+  onSelectChange(value){
+
+    // console.log(value.trim());
+
+    let index = this.options.findIndex(x=>x.id==value);
+    // console.log('indx:',indx);
+    
+    let status=this.options[index].status;
+    
+    if(value == '1'){console.log('pending');
+    
+    if(index!=-1)
+      this.dataSource.filter = status.trim().toLowerCase();
+    }else if(value == '0'){console.log('completed');
+      this.dataSource.filter = status.trim().toLowerCase();
+    }else {
+      this.dataSource = new MatTableDataSource(this.users);
+    }
+    
+    this.dataSource.paginator = this.paginator;
+    this.dataSource.sort      = this.sort;
   }
 
 
