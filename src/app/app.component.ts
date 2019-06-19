@@ -129,12 +129,12 @@ export class AppComponent implements OnInit {
     // console.log('indx:',indx);
     
     let status=this.options[index].status;
-    
-    if(value == '1'){console.log('pending');
-    
-    if(index!=-1)
+    //     if(index!=-1)
+    if(value == '1'){
+      //console.log('pending');
       this.dataSource.filter = status.trim().toLowerCase();
-    }else if(value == '0'){console.log('completed');
+    }else if(value == '0'){
+      // console.log('completed');
       this.dataSource.filter = status.trim().toLowerCase();
     }else {
       this.dataSource = new MatTableDataSource(this.users);
