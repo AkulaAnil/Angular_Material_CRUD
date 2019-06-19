@@ -17,6 +17,7 @@ export class CreateComponent implements OnInit {
       name: ['', Validators.required],
       weight: ['', Validators.required],
       symbol: ['', Validators.required],
+      status: ['', Validators.required]
     })
   }
 
