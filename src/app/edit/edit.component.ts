@@ -19,7 +19,8 @@ export class EditComponent implements OnInit {
       position: ['', Validators.required],
       name: ['', Validators.required],
       weight: ['', Validators.required],
-      symbol: ['', Validators.required]
+      symbol: ['', Validators.required],
+      status: ['', Validators.required]
     });
     if(data)
     {
